@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Culture Roleplay</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dash-body">
+
+<!-- LOGIN SCREEN -->
+<div class="login-screen" id="login-screen">
+  <div class="login-box">
+    <img class="login-seal" src="assets/logo.png" alt="Logo Culture Roleplay">
+    <h1>Masuk Dashboard</h1>
+    <p class="sub">Khusus Founder, Developer, dan Admin Culture Roleplay.</p>
+
+    <div class="form-msg" id="login-msg"></div>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" name="username" required autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-gold btn-block" id="login-btn">Masuk</button>
+    </form>
+    <p style="margin-top:20px;"><a href="index.html" class="back-link">&larr; Kembali ke beranda</a></p>
+  </div>
+</div>
+
+<!-- DASHBOARD SHELL -->
+<div class="dash-shell" id="dash-shell" style="display:none;">
+  <aside class="dash-sidebar">
+    <div class="dash-brand">
+      <img src="assets/logo.png" alt="Logo Culture Roleplay" style="width:30px;height:auto;object-fit:contain;">
+      <span>Culture Roleplay Dashboard</span>
+    </div>
+    <nav class="dash-nav">
+      <button class="dash-nav-item active" data-view="overview">📊 Ringkasan</button>
+      <button class="dash-nav-item" data-view="finance">💰 Data Keuangan</button>
+      <button class="dash-nav-item" data-view="expenses">🧾 Pengeluaran &amp; Pemasukan</button>
+      <button class="dash-nav-item" data-view="team">👥 Susunan Tim</button>
+      <button class="dash-nav-item" data-view="updates">📢 Update &amp; Informasi</button>
+      <button class="dash-nav-item" data-view="submissions">📥 Data Pendaftar</button>
+    </nav>
+    <div class="dash-user">
+      <div class="name" id="dash-user-name">—</div>
+      <span class="role-badge" id="dash-user-role">—</span>
+      <button class="btn btn-outline btn-sm btn-block" id="logout-btn" style="margin-top:14px;">Keluar</button>
+    </div>
+  </aside>
+
+  <main class="dash-main">
+
+    <!-- OVERVIEW -->
+    <div class="dash-view active" id="view-overview">
+      <div class="dash-header">
+        <div>
+          <h2>Ringkasan Kota</h2>
+          <p>Kondisi keuangan dan aktivitas Culture Roleplay saat ini.</p>
+        </div>
+      </div>
+      <div class="stat-cards">
+        <div class="stat-card">
+          <div class="lbl">Kas Kota</div>
+          <div class="val gold" id="ov-kas">₵0</div>
+        </div>
+        <div class="stat-card">
+          <div class="lbl">Pemasukan Bulan Ini</div>
+          <div class="val sage" id="ov-pemasukan">₵0</div>
+        </div>
+        <div class="stat-card">
+          <div class="lbl">Pengeluaran Bulan Ini</div>
+          <div class="val brick" id="ov-pengeluaran">₵0</div>
+        </div>
+        <div class="stat-card">
+          <div class="lbl">Total Anggota Tim</div>
+          <div class="val gold" id="ov-tim">0</div>
+        </div>
+      </div>
+      <div class="dash-panel">
+        <div class="dash-panel-head"><h3>Catatan Keuangan Terbaru</h3></div>
+        <table class="dash-table">
+          <thead><tr><th>Tanggal</th><th>Kategori</th><th>Deskripsi</th><th>Jumlah</th></tr></thead>
+          <tbody id="ov-expense-rows"><tr><td colspan="4" class="empty-row">Memuat...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FINANCE -->
+    <div class="dash-view" id="view-finance">
+      <div class="dash-header">
+        <div>
+          <h2>Data Keuangan Kota</h2>
+          <p>Kelola kas dan ringkasan keuangan Culture Roleplay.</p>
+        </div>
+      </div>
+      <div class="lock-note" id="finance-lock-note" style="display:none;">
+        🔒 Anda hanya dapat melihat data ini. Hanya Founder dan Developer yang dapat mengedit.
+      </div>
+      <div class="dash-panel">
+        <form id="finance-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Kas Kota (₵)</label>
+              <input type="number" id="f-kas" name="kas_kota" step="0.01" required>
+            </div>
+            <div class="form-group">
+              <label>Pemasukan Bulan Ini (₵)</label>
+              <input type="number" id="f-pemasukan" name="pemasukan_bulan_ini" step="0.01" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Pengeluaran Bulan Ini (₵)</label>
+              <input type="number" id="f-pengeluaran" name="pengeluaran_bulan_ini" step="0.01" required>
+            </div>
+            <div class="form-group">
+              <label>Keterangan</label>
+              <input type="text" id="f-keterangan" name="keterangan" placeholder="Catatan singkat">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-gold" id="finance-save-btn">Simpan Perubahan</button>
+        </form>
+        <p style="margin-top:14px;font-size:12px;color:var(--parchment-dim);" id="finance-updated-info"></p>
+      </div>
+    </div>
+
+    <!-- EXPENSES -->
+    <div class="dash-view" id="view-expenses">
+      <div class="dash-header">
+        <div>
+          <h2>Pengeluaran &amp; Pemasukan</h2>
+          <p>Catat riwayat transaksi keuangan kota secara rinci.</p>
+        </div>
+      </div>
+      <div class="lock-note" id="expenses-lock-note" style="display:none;">
+        🔒 Anda hanya dapat melihat data ini. Hanya Founder dan Developer yang dapat menambah/menghapus.
+      </div>
+      <div class="dash-panel" id="expense-form-panel">
+        <div class="dash-panel-head"><h3>Tambah Catatan</h3></div>
+        <form id="expense-form">
+          <div class="inline-form">
+            <div class="form-group">
+              <label>Tanggal</label>
+              <input type="date" name="tanggal" required>
+            </div>
+            <div class="form-group">
+              <label>Tipe</label>
+              <select name="tipe" required>
+                <option value="pengeluaran">Pengeluaran</option>
+                <option value="pemasukan">Pemasukan</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Kategori</label>
+              <input type="text" name="kategori" placeholder="Contoh: Gaji, Infrastruktur" required>
+            </div>
+            <div class="form-group">
+              <label>Jumlah (₵)</label>
+              <input type="number" name="jumlah" step="0.01" required>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:12px;">
+            <label>Deskripsi</label>
+            <input type="text" name="deskripsi" placeholder="Rincian singkat transaksi" required>
+          </div>
+          <button type="submit" class="btn btn-gold btn-sm">Tambah Catatan</button>
+        </form>
+      </div>
+      <div class="dash-panel">
+        <div class="dash-panel-head"><h3>Riwayat Transaksi</h3></div>
+        <table class="dash-table">
+          <thead><tr><th>Tanggal</th><th>Tipe</th><th>Kategori</th><th>Deskripsi</th><th>Jumlah</th><th>Oleh</th><th></th></tr></thead>
+          <tbody id="expense-rows"><tr><td colspan="7" class="empty-row">Memuat...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TEAM -->
+    <div class="dash-view" id="view-team">
+      <div class="dash-header">
+        <div>
+          <h2>Susunan Tim</h2>
+          <p>Kelola susunan Founder, Co-Founder, Developer, Management, Admin, dan Helper.</p>
+        </div>
+      </div>
+      <div class="lock-note" id="team-lock-note" style="display:none;">
+        🔒 Sebagai Admin, Anda hanya dapat menambah/mengedit/menghapus entri susunan tim milik Anda sendiri.
+      </div>
+      <div class="dash-panel">
+        <div class="dash-panel-head"><h3>Tambah Anggota Tim</h3></div>
+        <form id="team-form">
+          <input type="hidden" name="id" id="team-edit-id">
+          <div class="inline-form">
+            <div class="form-group">
+              <label>Kelompok</label>
+              <select name="role_group" id="team-role-select" required>
+                <option value="founder">Founder</option>
+                <option value="co_founder">Co-Founder</option>
+                <option value="dev">Developer</option>
+                <option value="management">Management</option>
+                <option value="admin">Admin</option>
+                <option value="helper">Helper</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Nama</label>
+              <input type="text" name="name" required>
+            </div>
+            <div class="form-group">
+              <label>Tag Discord</label>
+              <input type="text" name="discord_tag" placeholder="username#0000">
+            </div>
+            <div class="form-group">
+              <label>Urutan</label>
+              <input type="number" name="sort_order" value="0">
+            </div>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:8px;">
+            <button type="submit" class="btn btn-gold btn-sm" id="team-save-btn">Simpan Anggota</button>
+            <button type="button" class="btn btn-outline btn-sm" id="team-cancel-edit" style="display:none;">Batal Edit</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="team-role-groups"></div>
+    </div>
+
+    <!-- UPDATES -->
+    <div class="dash-view" id="view-updates">
+      <div class="dash-header">
+        <div>
+          <h2>Update &amp; Informasi Kota</h2>
+          <p>Publikasikan pengumuman yang tampil di halaman utama.</p>
+        </div>
+      </div>
+      <div class="lock-note" id="updates-lock-note" style="display:none;">
+        🔒 Hanya Founder dan Developer yang dapat menambah/menghapus pengumuman.
+      </div>
+      <div class="dash-panel" id="update-form-panel">
+        <div class="dash-panel-head"><h3>Buat Pengumuman</h3></div>
+        <form id="update-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Judul</label>
+              <input type="text" name="judul" required>
+            </div>
+            <div class="form-group">
+              <label>Tipe</label>
+              <select name="tipe">
+                <option value="info">Info</option>
+                <option value="update">Update</option>
+                <option value="pengumuman">Pengumuman</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Isi</label>
+            <textarea name="isi" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold btn-sm">Publikasikan</button>
+        </form>
+      </div>
+      <div class="dash-panel">
+        <div class="dash-panel-head"><h3>Daftar Pengumuman</h3></div>
+        <table class="dash-table">
+          <thead><tr><th>Tanggal</th><th>Tipe</th><th>Judul</th><th>Isi</th><th></th></tr></thead>
+          <tbody id="update-rows"><tr><td colspan="5" class="empty-row">Memuat...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SUBMISSIONS -->
+    <div class="dash-view" id="view-submissions">
+      <div class="dash-header">
+        <div>
+          <h2>Data Pendaftar</h2>
+          <p>Arsip cadangan seluruh formulir yang masuk (selain di Discord).</p>
+        </div>
+      </div>
+      <div class="dash-panel">
+        <div class="dash-panel-head">
+          <h3>Formulir Masuk</h3>
+          <select id="submission-filter" style="background:var(--bg);border:1px solid var(--panel-border);color:var(--parchment);padding:8px 12px;border-radius:4px;font-size:13px;">
+            <option value="">Semua Kategori</option>
+            <option value="admin">Admin</option>
+            <option value="polisi">Polisi</option>
+            <option value="ems">EMS</option>
+            <option value="pedagang">Pedagang</option>
+            <option value="pemerintah">Pemerintah</option>
+            <option value="mekanik">Mekanik</option>
+            <option value="bahamas">Bahamas</option>
+            <option value="media">Media</option>
+          </select>
+        </div>
+        <table class="dash-table">
+          <thead><tr><th>Tanggal</th><th>Kategori</th><th>Nama OOC</th><th>Discord</th><th>Detail</th></tr></thead>
+          <tbody id="submission-rows"><tr><td colspan="5" class="empty-row">Memuat...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>

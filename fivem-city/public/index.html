@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Culture Roleplay — Portal Resmi Kota</title>
+<meta name="description" content="Portal resmi kota — budaya, mata uang, sistem pemerintahan, susunan tim, serta pendaftaran admin dan whitelist.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="#" class="brand">
+      <img class="brand-seal" src="assets/logo.png" alt="Logo Culture Roleplay">
+      <div class="brand-text">Culture Roleplay<small>Portal Resmi Kota</small></div>
+    </a>
+    <nav class="main-nav">
+      <a href="#tentang">Tentang Kota</a>
+      <a href="#tim">Susunan Tim</a>
+      <a href="#daftar">Pendaftaran</a>
+      <a href="#kabar">Kabar Kota</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="dashboard.html" class="btn btn-outline btn-sm">Masuk Dashboard</a>
+      <button class="btn btn-gold btn-sm" data-open-modal="daftar-modal">Daftar Sekarang</button>
+    </div>
+    <button class="nav-toggle" aria-label="Buka menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Roleplay City · FiveM</div>
+      <h1>Bangun kisahmu di <em>Culture Roleplay</em>, kota yang hidup dari warganya.</h1>
+      <p class="lede">Culture Roleplay adalah kota roleplay dengan sistem ekonomi, hukum, dan pemerintahan yang dirancang serius — tempat setiap karakter punya peran dan setiap keputusan punya konsekuensi.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-gold" data-open-modal="daftar-modal">Ajukan Pendaftaran</button>
+        <a href="#tentang" class="btn btn-outline">Pelajari Kota Ini</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num" id="stat-tim">—</div>
+          <div class="lbl">Anggota Tim</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">7</div>
+          <div class="lbl">Instansi Whitelist</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num mono">RP</div>
+          <div class="lbl">Mata Uang Rupiah Menengah</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-seal-wrap">
+      <img class="hero-seal" src="assets/logo.png" alt="Logo Culture Roleplay">
+    </div>
+  </div>
+</section>
+
+<!-- TENTANG KOTA: culture, mata uang, sistem kota -->
+<section id="tentang">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Profil Kota</div>
+      <h2>Budaya, mata uang, dan sistem yang membentuk Culture Roleplay</h2>
+      <p>Tiga pilar yang menjadi dasar bagaimana Culture Roleplay dijalankan sehari-hari — dari cara warga berinteraksi hingga bagaimana roda ekonomi dan hukum berputar.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="mark">01 — BUDAYA KOTA</div>
+        <h3>Culture &amp; Etika Roleplay</h3>
+        <p>Culture Roleplay menjunjung roleplay yang imersif dan saling menghormati antar pemain.</p>
+        <ul>
+          <li>Wajib mengedepankan value RP di atas kepentingan pribadi (No Meta Gaming / No Power Gaming)</li>
+          <li>Setiap karakter memiliki latar belakang dan tujuan hidup masing-masing</li>
+          <li>Konflik diselesaikan melalui jalur IC (in-character), bukan OOC</li>
+          <li>Interaksi sosial, ekonomi, dan hukum berjalan realistis mengikuti alur cerita kota</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="mark">02 — EKONOMI KOTA</div>
+        <h3>Mata Uang Resmi</h3>
+        <div class="currency-tag">RM Rupiah Menengah</div>
+        <p>Seluruh transaksi di dalam kota — gaji instansi, jual beli properti, hingga usaha warga — menggunakan Rupiah Menengah sebagai alat tukar tunggal.</p>
+        <ul>
+          <li>Dikelola dan diawasi langsung oleh Departemen Pemerintahan</li>
+          <li>Sirkulasi dipantau melalui laporan keuangan kota yang transparan</li>
+          <li>Pajak dan retribusi usaha disalurkan kembali untuk pembangunan kota</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="mark">03 — TATA KELOLA</div>
+        <h3>Sistem Kota</h3>
+        <p>Culture Roleplay berjalan dengan sistem pemerintahan dan penegakan hukum terstruktur.</p>
+        <ul>
+          <li>Struktur pemerintahan: Wali Kota, Dewan Kota, dan Instansi Pelayanan Publik</li>
+          <li>Penegakan hukum oleh Kepolisian dengan SOP dan tingkat pelanggaran berjenjang</li>
+          <li>Layanan darurat oleh EMS untuk penanganan medis warga</li>
+          <li>Sistem whitelist untuk menjaga kualitas roleplay di setiap instansi</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUSUNAN TIM -->
+<section id="tim" class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Struktur Organisasi</div>
+      <h2>Tim di balik Culture Roleplay</h2>
+      <p>Kenali jajaran yang bertanggung jawab menjaga dan mengembangkan kota ini.</p>
+    </div>
+
+    <div class="team-tabs" id="team-tabs">
+      <button class="team-tab active" data-group="founder">Founder</button>
+      <button class="team-tab" data-group="co_founder">Co-Founder</button>
+      <button class="team-tab" data-group="dev">Developer</button>
+      <button class="team-tab" data-group="management">Management</button>
+      <button class="team-tab" data-group="admin">Admin</button>
+      <button class="team-tab" data-group="helper">Helper</button>
+    </div>
+
+    <div class="team-grid" id="team-grid">
+      <div class="team-empty">Memuat data tim...</div>
+    </div>
+  </div>
+</section>
+
+<!-- KABAR KOTA / UPDATE -->
+<section id="kabar">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Papan Pengumuman</div>
+      <h2>Kabar &amp; pembaruan kota</h2>
+      <p>Informasi terbaru seputar perkembangan Culture Roleplay.</p>
+    </div>
+    <div id="updates-list">
+      <p class="mono" style="color:var(--parchment-dim);font-size:13.5px;">Memuat pembaruan...</p>
+    </div>
+  </div>
+</section>
+
+<!-- DAFTAR -->
+<section id="daftar" class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bergabung</div>
+      <h2>Pendaftaran admin &amp; whitelist</h2>
+      <p>Pilih jalur yang sesuai dengan peranmu di Culture Roleplay. Setiap formulir akan ditinjau langsung oleh tim terkait.</p>
+    </div>
+
+    <div class="register-grid">
+      <div class="register-card featured">
+        <span class="icon-mark">TIM INTI</span>
+        <h4>Daftar Admin</h4>
+        <p>Bergabung menjadi tim pengawas dan penjaga kualitas roleplay di Culture Roleplay.</p>
+        <button class="btn btn-gold btn-block" data-open-form="admin">Ajukan Diri</button>
+      </div>
+      <div class="register-card">
+        <span class="icon-mark">INSTANSI</span>
+        <h4>Whitelist Instansi</h4>
+        <p>Daftar untuk bergabung ke salah satu dari 7 instansi resmi kota.</p>
+        <button class="btn btn-outline btn-block" data-open-modal="daftar-modal">Pilih Instansi</button>
+      </div>
+      <div class="register-card">
+        <span class="icon-mark">INFO</span>
+        <h4>Butuh Bantuan?</h4>
+        <p>Hubungi tim Helper kami melalui Discord resmi Culture Roleplay sebelum mendaftar.</p>
+        <a href="#tim" class="btn btn-outline btn-block">Lihat Kontak Tim</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <img class="brand-seal" style="width:32px;" src="assets/logo.png" alt="Logo Culture Roleplay">
+          <div class="brand-text">Culture Roleplay</div>
+        </div>
+        <p>Portal resmi kota roleplay Culture Roleplay — tempat setiap warga membangun kisahnya sendiri di dunia FiveM.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigasi</h5>
+        <a href="#tentang">Tentang Kota</a>
+        <a href="#tim">Susunan Tim</a>
+        <a href="#daftar">Pendaftaran</a>
+        <a href="#kabar">Kabar Kota</a>
+      </div>
+      <div class="footer-col">
+        <h5>Akses</h5>
+        <a href="dashboard.html">Dashboard Admin</a>
+        <a href="#" data-open-form="admin">Daftar Admin</a>
+        <a href="#" data-open-modal="daftar-modal">Daftar Whitelist</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Culture Roleplay City. Seluruh hak dilindungi.</span>
+      <span>Server Roleplay FiveM — Bukan afiliasi resmi Rockstar Games</span>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL: Pilih kategori pendaftaran -->
+<div class="modal-overlay" id="daftar-modal">
+  <div class="modal-box">
+    <button class="modal-close" data-close-modal>&times;</button>
+    <h3>Pilih Jalur Pendaftaran</h3>
+    <p class="modal-sub">Pilih kategori sesuai peran yang ingin kamu ajukan di Culture Roleplay.</p>
+    <div class="category-grid">
+      <button class="category-btn" data-open-form="admin">
+        <div class="cb-title">🛡️ Admin</div>
+        <div class="cb-desc">Tim pengawas server</div>
+      </button>
+      <button class="category-btn" data-open-form="polisi">
+        <div class="cb-title">🚓 Kepolisian</div>
+        <div class="cb-desc">Penegak hukum kota</div>
+      </button>
+      <button class="category-btn" data-open-form="ems">
+        <div class="cb-title">🚑 EMS</div>
+        <div class="cb-desc">Layanan medis darurat</div>
+      </button>
+      <button class="category-btn" data-open-form="pedagang">
+        <div class="cb-title">🛒 Pedagang</div>
+        <div class="cb-desc">Pelaku usaha kota</div>
+      </button>
+      <button class="category-btn" data-open-form="pemerintah">
+        <div class="cb-title">🏛️ Pemerintah</div>
+        <div class="cb-desc">Instansi pemerintahan</div>
+      </button>
+      <button class="category-btn" data-open-form="mekanik">
+        <div class="cb-title">🔧 Mekanik</div>
+        <div class="cb-desc">Bengkel &amp; kendaraan</div>
+      </button>
+      <button class="category-btn" data-open-form="bahamas">
+        <div class="cb-title">🏝️ Bahamas</div>
+        <div class="cb-desc">Instansi Bahamas</div>
+      </button>
+      <button class="category-btn" data-open-form="media">
+        <div class="cb-title">🎥 Media</div>
+        <div class="cb-desc">Jurnalis &amp; konten kota</div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Form pendaftaran (dinamis) -->
+<div class="modal-overlay" id="form-modal">
+  <div class="modal-box">
+    <button class="modal-close" data-close-modal>&times;</button>
+    <a href="#" class="back-link" id="form-back">&larr; Kembali pilih kategori</a>
+    <h3 id="form-title">Formulir Pendaftaran</h3>
+    <p class="modal-sub" id="form-sub">Lengkapi data diri kamu di bawah ini dengan jujur dan jelas.</p>
+
+    <div class="form-msg" id="form-msg"></div>
+
+    <form id="registration-form">
+      <input type="hidden" id="form_type" name="form_type" value="">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nama OOC (Asli)</label>
+          <input type="text" name="nama_ooc" required>
+        </div>
+        <div class="form-group">
+          <label>Umur</label>
+          <input type="number" name="umur" min="10" max="80" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Tanggal Lahir</label>
+          <input type="date" name="tanggal_lahir" required>
+        </div>
+        <div class="form-group">
+          <label>Nama Discord</label>
+          <input type="text" name="nama_discord" placeholder="username#0000" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Kesibukan Saat Ini <span class="hint">(sekolah/kuliah/kerja/lainnya)</span></label>
+        <input type="text" name="kesibukan" required>
+      </div>
+
+      <div class="form-group">
+        <label>Pengalaman Roleplay</label>
+        <textarea name="pengalaman_rp" placeholder="Ceritakan server RP yang pernah kamu ikuti dan berapa lama" required></textarea>
+      </div>
+
+      <div id="admin-only-fields" style="display:none;">
+        <div class="form-group">
+          <label>Pengalaman Menjadi Admin</label>
+          <textarea name="pengalaman_admin" placeholder="Pernah menjadi admin di server mana saja? Ceritakan tugasnya"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Alasan Ingin Menjadi Admin</label>
+          <textarea name="alasan" placeholder="Jelaskan motivasi dan komitmenmu"></textarea>
+        </div>
+      </div>
+
+      <div id="whitelist-only-fields" style="display:none;">
+        <div class="form-group">
+          <label>Nama Karakter IC <span class="hint">(dalam roleplay)</span></label>
+          <input type="text" name="nama_karakter">
+        </div>
+        <div class="form-group">
+          <label>Alasan Ingin Whitelist Instansi Ini</label>
+          <textarea name="alasan_whitelist" placeholder="Jelaskan alasan dan pemahamanmu tentang instansi ini"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Komitmen Waktu Bermain</label>
+          <input type="text" name="komitmen" placeholder="Contoh: 3-4 jam/hari, aktif akhir pekan">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Kontak Lain <span class="hint">(opsional)</span></label>
+        <input type="text" name="kontak" placeholder="WhatsApp / Instagram / lainnya">
+      </div>
+
+      <button type="submit" class="btn btn-gold btn-block" id="submit-btn">Kirim Formulir</button>
+    </form>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
